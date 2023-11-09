@@ -1,0 +1,164 @@
+/* global */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body {
+  font-family: 'font', sans-serif;
+}
+
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
+
+.section-offset {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.button {
+  border: 1px solid #000;
+  padding: 5px 10px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.red-button {
+  border-color: #8c0d0d;
+  color: #8c0d0d;
+}
+
+.green-button {
+  border-color: #499c70;
+  color: #499c70;
+}
+
+.flex {
+  display: flex;
+}
+
+/* header */
+.header {
+  padding-top: 35px;
+  padding-bottom: 35px;
+}
+
+.header-container {
+  padding: 20px 0;
+  text-align: center;
+  background-color: #6ba2fa;
+}
+
+.header-title {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.header-text {
+  margin: 0;
+}
+
+/* contacts */
+.contacts-container {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.table {
+  margin-bottom: 20px;
+}
+
+.table-caption {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.head-row {
+  background-color: #6ba2fa;
+}
+
+.body-row:nth-child(even) {
+  background-color: #b4cffa;
+}
+
+.table-item {
+  padding: 5px 10px;
+  min-width: 200px;
+  text-align: center;
+  word-break: break-all;
+}
+
+.table-links {
+  padding-left: 10px;
+  background-color: #fff;
+}
+
+.edit-link {
+  color: #499c70;
+}
+
+.delete-link {
+  color: #8c0d0d;
+}
+
+.table-link:not(:last-child) {
+  margin-right: 20px;
+}
+
+.add-link {
+  align-self: center;
+}
+
+/* edit */
+.edit-container {
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-title {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.edit-form {
+  flex-direction: column;
+}
+
+.fieldset {
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  border: none;
+}
+
+.input:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.label {
+  margin-bottom: 10px;
+}
+
+.button-container {
+  justify-content: space-between;
+}
+
+.hidden {
+  color: transparent;
+}

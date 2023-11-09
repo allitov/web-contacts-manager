@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>Contacts Manager</title>
+  <link rel="stylesheet" href="../static/normalize.css">
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header-container">
+      <h1 class="header-title">
+        Contacts Manager
+      </h1>
+
+      <p class="header-text">
+        Manage your contacts!
+      </p>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="contacts-section section-offset">
+      <div class="container contacts-container flex">
+        <table class="table">
+          <caption class="table-caption">
+            Your contacts
+          </caption>
+
+          <thead>
+            <tr class="head-row">
+              <th class="table-item">
+                ID
+              </th>
+              <th class="table-item">
+                First Name
+              </th>
+              <th class="table-item">
+                Last Name
+              </th>
+              <th class="table-item">
+                Email
+              </th>
+              <th class="table-item">
+                Phone
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="body-row">
+              <td class="table-item">
+                1
+              </td>
+              <td class="table-item">
+                Иван
+              </td>
+              <td class="table-item">
+                Иванов
+              </td>
+              <td class="table-item">
+                <a href="mailto:email@example.com">email@example.com</a>
+              </td>
+              <td class="table-item">
+                <a href="tel:+12345678901">+12345678901</a>
+              </td>
+              <td class="table-links">
+                <div class="links-container flex">
+                  <a href="edit.html" class="table-link edit-link">Edit</a>
+                  <a href="#" class="table-link delete-link">Delete</a>
+                </div>
+              </td>
+            </tr>
+
+            <tr class="body-row">
+              <td class="table-item">
+                1
+              </td>
+              <td class="table-item">
+                Иван
+              </td>
+              <td class="table-item">
+                Иванов
+              </td>
+              <td class="table-item">
+                <a href="mailto:email@example.com">email@example.com</a>
+              </td>
+              <td class="table-item">
+                <a href="tel:+12345678901">+12345678901</a>
+              </td>
+              <td class="table-links">
+                <div class="links-container flex">
+                  <a href="edit.html" class="table-link edit-link">Edit</a>
+                  <a href="#" class="table-link delete-link">Delete</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <a class="add-link" href="edit.html"><input class="button green-button" type="button" value="Add contact"></a>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
