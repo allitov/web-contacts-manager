@@ -32,7 +32,7 @@ public class DatabaseContactRepository implements ContactRepository {
             """;
 
     private static final String SQL_SAVE = """
-            INSERT INTO task (first_name, last_name, email, phone)
+            INSERT INTO contact (first_name, last_name, email, phone)
             VALUES (?, ?, ?, ?);
             """;
 
@@ -44,7 +44,7 @@ public class DatabaseContactRepository implements ContactRepository {
 
     private static final String SQL_DELETE = """
             DELETE
-            FROM task
+            FROM contact
             WHERE id = ?;
             """;
 
@@ -73,6 +73,7 @@ public class DatabaseContactRepository implements ContactRepository {
                         Types.VARCHAR, Types.VARCHAR,
                         Types.VARCHAR, Types.VARCHAR
                 );
+        pscf.setGeneratedKeysColumnNames("id");
         pscf.setReturnGeneratedKeys(true);
 
         PreparedStatementCreator psc =
@@ -100,7 +101,8 @@ public class DatabaseContactRepository implements ContactRepository {
                     contact.getFirstName(),
                     contact.getLastName(),
                     contact.getEmail(),
-                    contact.getPhone()
+                    contact.getPhone(),
+                    contact.getId()
             );
             return contact;
         }
@@ -118,11 +120,11 @@ public class DatabaseContactRepository implements ContactRepository {
 
     private Contact mapRowToContact(ResultSet rs, int rowNum) throws SQLException {
         return Contact.builder()
-                .id(rs.getLong(Contact.Fields.id))
-                .firstName(rs.getString(Contact.Fields.firstName))
-                .lastName(rs.getString(Contact.Fields.lastName))
-                .email(rs.getString(Contact.Fields.email))
-                .phone(rs.getString(Contact.Fields.phone))
+                .id(rs.getLong("id"))
+                .firstName(rs.getString("first_name"))
+                .lastName(rs.getString("last_name"))
+                .email(rs.getString("email"))
+                .phone(rs.getString("phone"))
                 .build();
     }
 }
