@@ -53,7 +53,6 @@ public class DatabaseContactRepository implements ContactRepository {
         return jdbcTemplate.query(SQL_FIND_ALL, this::mapRowToContact);
     }
 
-    // TODO: проверить поиск, если одинаковых записей несколько
     @Override
     public Optional<Contact> findById(Long id) {
         Contact contact = DataAccessUtils.singleResult(jdbcTemplate.query(
@@ -94,25 +93,18 @@ public class DatabaseContactRepository implements ContactRepository {
 
     @Override
     public Contact update(Contact contact) {
-        Contact foundContact = findById(contact.getId()).orElse(null);
-        if (foundContact != null) {
-            jdbcTemplate.update(
-                    SQL_UPDATE,
-                    contact.getFirstName(),
-                    contact.getLastName(),
-                    contact.getEmail(),
-                    contact.getPhone(),
-                    contact.getId()
-            );
-            return contact;
-        }
-
-        System.out.println("Такой записи в базе нет!");
+        jdbcTemplate.update(
+                SQL_UPDATE,
+                contact.getFirstName(),
+                contact.getLastName(),
+                contact.getEmail(),
+                contact.getEmail(),
+                contact.getId()
+        );
 
         return contact;
     }
 
-    //TODO: проверить на удаление несуществующей записи
     @Override
     public void deleteById(Long id) {
         jdbcTemplate.update(SQL_DELETE, id);
