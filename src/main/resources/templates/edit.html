@@ -11,17 +11,7 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="container header-container">
-      <h1 class="header-title">
-        Contacts Manager
-      </h1>
-
-      <p class="header-text">
-        Manage your contacts!
-      </p>
-    </div>
-  </header>
+  <header th:replace="~{/fragments/header_fragment :: header}"></header>
 
   <main>
     <section class="edit-section section-offset">
