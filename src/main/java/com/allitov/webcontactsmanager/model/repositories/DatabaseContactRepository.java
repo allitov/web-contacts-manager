@@ -98,7 +98,7 @@ public class DatabaseContactRepository implements ContactRepository {
                 contact.getFirstName(),
                 contact.getLastName(),
                 contact.getEmail(),
-                contact.getEmail(),
+                contact.getPhone(),
                 contact.getId()
         );
 
