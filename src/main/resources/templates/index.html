@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>Contacts Manager</title>
+  <link rel="stylesheet" th:href="@{/normalize.css}" href="../static/normalize.css">
+  <link rel="stylesheet" th:href="@{/style.css}" href="../static/style.css">
+</head>
+
+<body>
+  <header th:replace="~{/fragments/header_fragment :: header}"></header>
+
+  <main class="main">
+    <section class="contacts-section section-offset">
+      <div class="container contacts-container flex">
+        <h2 class="no-contacts" th:if="${contacts.size() == 0}">No contacts were saved</h2>
+
+        <table class="table" th:if="${contacts.size() > 0}">
+          <caption class="table-caption">
+            Your contacts
+          </caption>
+
+          <thead>
+            <tr class="head-row">
+              <th class="table-item">
+                ID
+              </th>
+              <th class="table-item">
+                First Name
+              </th>
+              <th class="table-item">
+                Last Name
+              </th>
+              <th class="table-item">
+                Email
+              </th>
+              <th class="table-item">
+                Phone
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="body-row" th:each="contact : ${contacts}">
+              <td class="table-item" th:text="${contact.id}">
+                1
+              </td>
+              <td class="table-item" th:text="${contact.firstName}">
+                Иван
+              </td>
+              <td class="table-item" th:text="${contact.lastName}">
+                Иванов
+              </td>
+              <td class="table-item" th:text="${contact.email}">
+                <a th:href="@{mailto:{email}(email=${contact.email})}" href="mailto:email@example.com">email@example.com</a>
+              </td>
+              <td class="table-item" th:text="${contact.phone}">
+                <a th:href="@{tel:{phone}(phone=${contact.phone})}" href="tel:+12345678901">+12345678901</a>
+              </td>
+              <td class="table-links">
+                <div class="links-container flex">
+                  <a class="table-link edit-link" th:href="@{/contact/edit/{id}(id=${contact.id})}" href="edit.html">Edit</a>
+                  <a class="table-link delete-link" th:href="@{/contact/delete/{id}(id=${contact.id})}" href="#">Delete</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <a class="add-link" th:href="@{/contact/edit}" href="edit.html">
+          <input class="button green-button" type="button" value="Add contact">
+        </a>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

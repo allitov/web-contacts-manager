@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <title>Edit Contact</title>
+  <link rel="stylesheet" th:href="@{/normalize.css}" href="../static/normalize.css">
+  <link rel="stylesheet" th:href="@{/style.css}" href="../static/style.css">
+</head>
+
+<body>
+  <header th:replace="~{/fragments/header_fragment :: header}"></header>
+
+  <main>
+    <section class="edit-section section-offset">
+      <div class="container edit-container flex">
+        <h2 class="edit-title">
+          Edit contact
+        </h2>
+
+        <form class="edit-form flex" th:action="@{/contact/update}" action="#" method="post">
+          <fieldset class="fieldset flex">
+            <legend class="hidden">
+              Contact data
+            </legend>
+
+            <input id="id" type="hidden" name="id" th:value="${contact.id}">
+
+            <label class="label" for="firstName">First Name</label>
+            <input id="firstName" class="input" type="text" name="firstName" required maxlength="50" placeholder="Ivan" th:value="${contact.firstName}">
+
+            <label class="label" for="lastName">Last Name</label>
+            <input id="lastName" class="input" type="text" name="lastName" required maxlength="50" placeholder="Ivanov" th:value="${contact.lastName}">
+
+            <label class="label" for="email">Email</label>
+            <input id="email" class="input" type="email" name="email" required maxlength="50" placeholder="email@example.com" th:value="${contact.email}">
+
+            <label class="label" for="phone">Phone</label>
+            <input id="phone" class="input" type="tel" name="phone" required maxlength="12" placeholder="+12345678901" th:value="${contact.phone}">
+          </fieldset>
+
+          <div class="button-container flex">
+            <a th:href="@{/}" href="index.html">
+              <input class="button red-button" type="button" value="Cancel">
+            </a>
+            <button class="button green-button" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
