@@ -16,7 +16,9 @@
   <main class="main">
     <section class="contacts-section section-offset">
       <div class="container contacts-container flex">
-        <table class="table">
+        <h2 class="no-contacts" th:if="${contacts.size() == 0}">No contacts were saved</h2>
+
+        <table class="table" th:if="${contacts.size() > 0}">
           <caption class="table-caption">
             Your contacts
           </caption>

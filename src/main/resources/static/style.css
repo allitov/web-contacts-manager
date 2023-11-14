@@ -77,6 +77,12 @@ body {
   justify-content: center;
 }
 
+.no-contacts {
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 .table {
   margin-bottom: 20px;
 }
